@@ -67,13 +67,15 @@ class Game:
             background = background.convert()
             background.fill((250, 250, 250))
         screen.blit(background, (0, 0))
-        self.draw_block(screen, (255, 0, 0), self.apple)
-        for pos in self.snake:
-            self.draw_block(screen, (0, 255, 0), pos)
-
-    def draw_block(self, screen, color, pos):
         block_size = screen_size / self.board_size
-        pygame.draw.rect(screen, color, pygame.Rect(block_size * (pos[1] + 0.1), block_size * (pos[0] + 0.1), block_size * 0.8, block_size * 0.8))
+        pygame.draw.circle(screen, (255, 0, 0), (block_size * (self.apple[1] + 0.5), block_size * (self.apple[0] + 0.5)), block_size * 0.3)
+        for index, pos in enumerate(self.snake):
+            self.draw_block(screen, (0, 255, 0), pos, index)
+
+    def draw_block(self, screen, color, pos, index):
+        block_size = screen_size / self.board_size
+        scale = 0.9 ** (index + 1)
+        pygame.draw.rect(screen, color, pygame.Rect(block_size * (pos[1] + (1 - scale) / 2), block_size * (pos[0] + (1 - scale) / 2), block_size * scale, block_size * scale))
 
     def step(self, action):
         self.moves += 1
