@@ -1,6 +1,6 @@
 # AI learns to play Snake
 
-This is the source code I made for a medium article and a YouTube video. I will add links to both if/when I make them.
+This is the source code I made for a [medium article](https://williamverhaeghe.medium.com/ai-learns-to-play-snake-905a498e501b) and a [YouTube video](https://youtu.be/hJm4kdzfPqY).
 
 # Files
 
